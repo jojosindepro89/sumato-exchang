@@ -1,0 +1,77 @@
+.main { min-height: 100vh; background: var(--bg-primary); padding-top: 80px; padding-bottom: 60px; }
+.container { max-width: 720px; margin: 0 auto; padding: 28px 24px; display: flex; flex-direction: column; gap: 20px; }
+.breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); }
+.breadLink { display: flex; align-items: center; gap: 5px; color: var(--accent); }
+.pageTitle { font-size: 26px; font-weight: 800; color: var(--text-primary); }
+.subTitle { font-size: 18px; font-weight: 700; color: var(--text-primary); }
+.tabs { display: flex; gap: 4px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 5px; }
+.tab { flex: 1; padding: 10px; background: transparent; border: none; border-radius: 7px; font-size: 14px; font-weight: 600; color: var(--text-secondary); cursor: pointer; transition: all 0.2s; }
+.tabActive { background: var(--accent); color: #1a1a1a; }
+
+.searchWrap { display: flex; align-items: center; gap: 8px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; color: var(--text-muted); }
+.searchInput { flex: 1; background: transparent; border: none; color: var(--text-primary); font-size: 13px; }
+.searchInput::placeholder { color: var(--text-muted); }
+
+.brandsGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.brandCard {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 20px 12px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  cursor: pointer; transition: all 0.2s;
+}
+.brandCard:hover { border-color: var(--accent); transform: translateY(-3px); }
+.brandLogo { font-size: 32px; }
+.brandName { font-size: 12px; font-weight: 700; color: var(--text-primary); text-align: center; }
+.brandFrom { font-size: 10px; color: var(--text-muted); }
+
+.formCard { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 20px; }
+.backBtn { display: flex; align-items: center; gap: 6px; background: transparent; border: none; color: var(--text-secondary); font-size: 13px; cursor: pointer; }
+.brandHeader { display: flex; align-items: center; gap: 14px; }
+.brandLogoLg { font-size: 40px; }
+
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field label { font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+.amtGrid { display: flex; flex-wrap: wrap; gap: 8px; }
+.amtBtn { padding: 9px 16px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 6px; color: var(--text-secondary); font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.amtBtn:hover { border-color: var(--accent); color: var(--accent); }
+.amtActive { border-color: var(--accent) !important; background: rgba(252,213,53,0.08) !important; color: var(--accent) !important; }
+
+.assetSelector { display: flex; gap: 8px; }
+.assetBtn { flex: 1; padding: 9px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 6px; color: var(--text-secondary); font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.assetActive { border-color: var(--accent) !important; background: rgba(252,213,53,0.08) !important; color: var(--accent) !important; }
+
+.summary { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+.sumRow { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.sumRow:last-child { border-bottom: none; }
+.sumRow span { color: var(--text-secondary); }
+.sumRow strong { color: var(--text-primary); }
+
+.buyBtn { padding: 14px; background: var(--accent); color: #1a1a1a; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.2s; }
+.buyBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.successCard { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 24px 0; }
+.successIcon { color: var(--green); font-size: 48px; }
+.successCheckIcon { color: var(--green); }
+.successTitle { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+.successSub { font-size: 14px; color: var(--text-secondary); }
+.cardCodeBox { background: linear-gradient(135deg, #1a2035, #0d1117); border: 1px solid var(--accent); border-radius: 14px; padding: 24px; width: 100%; max-width: 380px; text-align: center; }
+.codeLabel { font-size: 11px; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+.codeValue { font-size: 22px; font-weight: 800; color: var(--accent); letter-spacing: 3px; font-family: monospace; margin-bottom: 14px; }
+.copyCodeBtn { padding: 8px 20px; background: var(--accent); color: #1a1a1a; border: none; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; }
+.codeNote { font-size: 12px; color: var(--text-muted); max-width: 340px; line-height: 1.5; }
+
+.selectInput { padding: 10px 12px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-size: 13px; }
+.input { padding: 10px 12px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); font-size: 13px; }
+.input:focus { border-color: var(--accent); outline: none; }
+
+.quoteBox { background: rgba(14,203,129,0.08); border: 1px solid rgba(14,203,129,0.2); border-radius: 12px; padding: 24px; text-align: center; }
+.quoteBrand { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+.quoteRate { font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
+.quoteAmount { font-size: 18px; font-weight: 800; color: var(--text-primary); margin-bottom: 8px; }
+.quoteAmount strong { color: var(--green); }
+.quoteExpiry { font-size: 12px; color: var(--text-muted); }
+
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.spin { animation: spin 0.8s linear infinite; }
+
+@media (max-width: 600px) { .brandsGrid { grid-template-columns: repeat(2, 1fr); } }

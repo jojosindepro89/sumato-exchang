@@ -1,0 +1,256 @@
+.main { min-height: 100vh; background: var(--bg-primary); padding-top: 60px; }
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #0b0e11 0%, #12161c 50%, #0b0e11 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 60px 24px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -120px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(252,213,53,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.heroBadge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(252,213,53,0.1); border: 1px solid rgba(252,213,53,0.2);
+  color: var(--accent); font-size: 12px; font-weight: 700;
+  padding: 5px 14px; border-radius: 20px; margin-bottom: 20px;
+}
+.heroTitle { font-size: 42px; font-weight: 900; color: var(--text-primary); margin-bottom: 14px; letter-spacing: -1px; }
+.heroSub { font-size: 16px; color: var(--text-secondary); max-width: 520px; margin: 0 auto 28px; line-height: 1.6; }
+.heroStats { display: flex; align-items: center; justify-content: center; gap: 24px; }
+.heroStat { font-size: 14px; color: var(--text-secondary); }
+.heroStat span { color: var(--accent); font-weight: 800; font-size: 18px; margin-right: 4px; }
+.heroStatDiv { width: 1px; height: 20px; background: var(--border); }
+
+/* Container */
+.container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+.mainGrid { display: grid; grid-template-columns: 1fr 360px; gap: 28px; align-items: start; }
+
+/* Buy card */
+.buyCard {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 32px;
+  display: flex; flex-direction: column; gap: 22px;
+}
+.cardTitle { font-size: 20px; font-weight: 800; color: var(--text-primary); }
+
+/* Fields */
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field label { font-size: 12px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Coin selector */
+.coinSelector {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+  cursor: pointer; transition: border-color 0.2s; position: relative;
+}
+.coinSelector:hover { border-color: var(--accent); }
+.coinSel { display: flex; align-items: center; gap: 12px; flex: 1; }
+.coinIcon {
+  width: 40px; height: 40px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 900; flex-shrink: 0;
+}
+.coinSymbol { font-size: 16px; font-weight: 800; color: var(--text-primary); }
+.coinName { font-size: 12px; color: var(--text-secondary); margin-top: 1px; }
+.coinPrice { text-align: right; font-size: 14px; font-weight: 600; color: var(--text-primary); }
+.priceUp { color: var(--green); font-size: 12px; }
+.priceDown { color: var(--red); font-size: 12px; }
+.chevron { color: var(--text-muted); transition: transform 0.2s; }
+.chevronUp { transform: rotate(180deg); }
+
+.coinDropdown {
+  position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden; z-index: 100;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  max-height: 320px; overflow-y: auto;
+}
+.coinOption {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; padding: 12px 16px;
+  background: transparent; border: none; border-bottom: 1px solid var(--border);
+  cursor: pointer; transition: background 0.15s; text-align: left;
+}
+.coinOption:last-child { border-bottom: none; }
+.coinOption:hover { background: var(--bg-hover); }
+.coinActive { background: rgba(252,213,53,0.05) !important; }
+.coinOptionChange { margin-left: auto; font-size: 12px; font-weight: 600; }
+
+/* Amount */
+.amountPresets { display: flex; gap: 8px; flex-wrap: wrap; }
+.amtBtn {
+  padding: 7px 16px; background: var(--bg-secondary);
+  border: 1px solid var(--border); border-radius: 6px;
+  color: var(--text-secondary); font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s;
+}
+.amtBtn:hover { border-color: var(--accent); color: var(--accent); }
+.amtActive { border-color: var(--accent) !important; background: rgba(252,213,53,0.08) !important; color: var(--accent) !important; }
+
+.amountInput {
+  display: flex; align-items: center;
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden; transition: border-color 0.2s;
+}
+.amountInput:focus-within { border-color: var(--accent); }
+.amountCurrency { padding: 14px 14px 14px 16px; font-size: 18px; font-weight: 700; color: var(--text-secondary); }
+.amountField {
+  flex: 1; padding: 14px 0; background: transparent; border: none;
+  font-size: 22px; font-weight: 800; color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+.amountUSD { padding: 14px 16px; font-size: 13px; font-weight: 700; color: var(--text-muted); }
+.youReceive { font-size: 13px; color: var(--text-secondary); }
+.youReceive strong { color: var(--accent); }
+
+/* Payment methods */
+.payMethods { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.payMethod {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 14px; background: var(--bg-secondary);
+  border: 1px solid var(--border); border-radius: 10px;
+  cursor: pointer; transition: all 0.2s; text-align: left;
+}
+.payMethod:hover { border-color: var(--accent); }
+.payMethodActive { border-color: var(--accent) !important; background: rgba(252,213,53,0.06) !important; }
+.payIcon { font-size: 20px; flex-shrink: 0; }
+.payLabel { font-size: 12px; font-weight: 700; color: var(--text-primary); }
+.payMeta { font-size: 10px; color: var(--text-muted); margin-top: 1px; }
+
+/* Card details */
+.cardDetails {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+}
+.cardHeader { padding: 12px 16px; font-size: 12px; font-weight: 700; color: var(--text-secondary); border-bottom: 1px solid var(--border); background: var(--bg-card); text-transform: uppercase; letter-spacing: 0.5px; }
+.cardFieldGroup { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.cField { display: flex; flex-direction: column; gap: 5px; }
+.cField label { font-size: 11px; font-weight: 600; color: var(--text-secondary); }
+.cInput {
+  padding: 10px 12px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 6px;
+  color: var(--text-primary); font-size: 14px; font-family: monospace;
+}
+.cInput:focus { border-color: var(--accent); outline: none; }
+.cRow { display: flex; gap: 12px; }
+.cRow .cField { flex: 1; }
+
+/* Fee summary */
+.feeSummary {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 10px; padding: 16px;
+}
+.feeRow { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.feeRow:last-child { border-bottom: none; }
+.feeRow span { color: var(--text-secondary); }
+.feeRow strong { color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.feeTotal { padding-top: 12px; }
+.feeTotal span { font-size: 15px; font-weight: 700; color: var(--text-primary); }
+.totalAmt { font-size: 20px; font-weight: 900; color: var(--accent); }
+
+/* Buy button */
+.buyBtn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 16px; background: var(--accent); color: #1a1a1a;
+  border: none; border-radius: 10px; font-size: 16px; font-weight: 800;
+  cursor: pointer; transition: background 0.2s; width: 100%;
+}
+.buyBtn:hover:not(:disabled) { background: var(--accent-hover); }
+.buyBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.secureNote {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  font-size: 11px; color: var(--text-muted);
+}
+.secureNote svg { color: var(--green); }
+
+/* Confirm */
+.confirmSummary { display: flex; flex-direction: column; gap: 16px; }
+.confirmCoinHeader {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px;
+}
+.coinIconLg {
+  width: 52px; height: 52px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 900; flex-shrink: 0;
+}
+.confirmCoinName { font-size: 14px; color: var(--text-secondary); }
+.confirmCoinAmt { font-size: 24px; font-weight: 900; color: var(--text-primary); margin-top: 4px; }
+.confirmRows { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+.confirmWarning {
+  display: flex; align-items: flex-start; gap: 8px;
+  background: rgba(252,213,53,0.06); border: 1px solid rgba(252,213,53,0.15);
+  border-radius: 8px; padding: 12px 14px; font-size: 12px; color: var(--text-secondary); line-height: 1.5;
+}
+.confirmWarning svg { color: var(--accent); flex-shrink: 0; }
+.confirmActions { display: flex; gap: 12px; }
+.backBtn {
+  padding: 14px 20px; background: transparent;
+  border: 1px solid var(--border); border-radius: 10px;
+  color: var(--text-primary); font-size: 14px; cursor: pointer;
+}
+
+/* Success */
+.successCard { text-align: center; padding: 20px 0; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.successAnim { }
+.successIcon { color: var(--green); animation: bounceIn 0.5s ease; }
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.5); }
+  70% { transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.successTitle { font-size: 26px; font-weight: 800; color: var(--text-primary); }
+.successSub { font-size: 14px; color: var(--text-secondary); }
+.successSub strong { color: var(--accent); }
+.receiptCard { width: 100%; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+.txId { font-family: monospace; color: var(--accent); letter-spacing: 1px; }
+.successActions { display: flex; gap: 12px; width: 100%; max-width: 380px; }
+.anotherBtn { flex: 1; padding: 12px; background: transparent; border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-size: 14px; cursor: pointer; transition: all 0.2s; }
+.anotherBtn:hover { border-color: var(--accent); color: var(--accent); }
+.walletBtn { flex: 1; padding: 12px; background: var(--accent); border: none; border-radius: 8px; color: #1a1a1a; font-size: 14px; font-weight: 700; text-align: center; cursor: pointer; }
+
+/* Right column */
+.rightCol { display: flex; flex-direction: column; gap: 20px; position: sticky; top: 80px; }
+.trustCard { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+.trustTitle { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px; }
+.trustItems { display: flex; flex-direction: column; gap: 14px; }
+.trustItem { display: flex; align-items: flex-start; gap: 12px; }
+.trustIcon { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+.trustLabel { font-size: 13px; font-weight: 700; color: var(--text-primary); }
+.trustDesc { font-size: 12px; color: var(--text-secondary); margin-top: 2px; line-height: 1.4; }
+
+.trendingCard { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+.trendingTitle { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.trendingRow { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.1s; border-radius: 6px; }
+.trendingRow:last-child { border-bottom: none; }
+.trendingRow:hover { background: var(--bg-hover); }
+.trendingInfo { flex: 1; }
+.trendingSymbol { font-size: 13px; font-weight: 700; color: var(--text-primary); }
+.trendingName { font-size: 11px; color: var(--text-secondary); margin-top: 1px; }
+.trendingRight { text-align: right; }
+.trendingPrice { font-size: 13px; font-weight: 600; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.spin { animation: spin 0.8s linear infinite; }
+
+@media (max-width: 900px) {
+  .mainGrid { grid-template-columns: 1fr; }
+  .rightCol { position: static; }
+  .heroTitle { font-size: 28px; }
+}
+@media (max-width: 600px) {
+  .payMethods { grid-template-columns: 1fr; }
+}

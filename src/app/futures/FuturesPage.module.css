@@ -1,0 +1,225 @@
+.page { display: flex; flex-direction: column; height: 100vh; padding-top: 60px; overflow: hidden; background: var(--bg-primary); }
+
+/* TOP BAR */
+.topBar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+.contractsList { display: flex; }
+.contractItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-right: 1px solid var(--border);
+  background: transparent;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.contractItem:hover { background: var(--bg-hover); }
+.contractActive { border-bottom-color: var(--accent) !important; background: var(--bg-hover) !important; }
+.contractPair { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.contractPrice { font-size: 12px; font-variant-numeric: tabular-nums; }
+.contractChange { font-size: 11px; font-weight: 600; }
+.up { color: var(--green); }
+.down { color: var(--red); }
+
+/* STATS STRIP */
+.statsStrip {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 10px 16px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  overflow-x: auto;
+}
+.stripLeft { display: flex; flex-direction: column; flex-shrink: 0; }
+.pairBig { font-size: 11px; color: var(--text-muted); margin-bottom: 2px; }
+.priceBig { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.stripStat { flex-shrink: 0; }
+.stripLabel { font-size: 10px; color: var(--text-muted); }
+.stripVal { font-size: 13px; font-weight: 600; color: var(--text-primary); margin-top: 2px; font-variant-numeric: tabular-nums; }
+
+/* MAIN */
+.mainGrid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  overflow: hidden;
+  min-height: 0;
+}
+.chartArea { overflow: hidden; border-right: 1px solid var(--border); }
+.tradePanel { overflow-y: auto; background: var(--bg-card); }
+
+/* Trade panel */
+.marginRow {
+  display: flex;
+  gap: 4px;
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.marginBtn {
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.marginBtn:hover { color: var(--text-primary); }
+.marginActive { color: var(--text-primary) !important; border-color: var(--border-light) !important; background: var(--bg-hover) !important; }
+.leverageBtn {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(252,213,53,0.12);
+  border: 1px solid rgba(252,213,53,0.4);
+  border-radius: 4px;
+  color: var(--accent);
+  cursor: pointer;
+}
+.leverageBtn:hover { background: rgba(252,213,53,0.2); }
+
+.levModal {
+  margin: 8px 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  animation: fadeDown 0.15s ease;
+}
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+.levModalTitle { font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 10px; }
+.levButtons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 10px; }
+.levBtn {
+  padding: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.levBtn:hover { border-color: var(--accent); color: var(--accent); }
+.levActive { border-color: var(--accent) !important; color: var(--accent) !important; background: rgba(252,213,53,0.08) !important; }
+.levWarning {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.sideToggle { display: grid; grid-template-columns: 1fr 1fr; }
+.longBtn, .shortBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-bottom: 1px solid var(--border);
+}
+.longBtn { background: var(--bg-secondary); color: var(--text-muted); }
+.shortBtn { background: var(--bg-secondary); color: var(--text-muted); }
+.longActive { background: rgba(14,203,129,0.1) !important; color: var(--green) !important; border-bottom: 2px solid var(--green) !important; }
+.shortActive { background: rgba(246,70,93,0.1) !important; color: var(--red) !important; border-bottom: 2px solid var(--red) !important; }
+
+.orderTabs { display: flex; padding: 8px 12px 0; border-bottom: 1px solid var(--border); }
+.orderTab {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  background: transparent;
+  color: var(--text-secondary);
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: -1px;
+}
+.orderTab:hover { color: var(--text-primary); }
+.orderTabActive { color: var(--accent) !important; border-bottom-color: var(--accent) !important; }
+
+.fields { padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+.availRow { display: flex; justify-content: space-between; }
+.availLabel { font-size: 11px; color: var(--text-muted); }
+.availVal { font-size: 12px; font-weight: 600; color: var(--text-primary); }
+
+.field { display: flex; flex-direction: column; gap: 4px; }
+.fieldLabel { font-size: 11px; color: var(--text-muted); }
+.fieldInput {
+  width: 100%;
+  padding: 9px 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-size: 13px;
+}
+.fieldInput:focus { border-color: var(--accent); }
+
+.pctRow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+.pctBtn {
+  padding: 5px;
+  font-size: 11px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.pctBtn:hover { border-color: var(--accent); color: var(--accent); }
+
+.costInfo {
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.costRow { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-secondary); }
+.costRow span:last-child { color: var(--text-primary); font-weight: 500; }
+
+.longSubmit, .shortSubmit {
+  width: 100%;
+  padding: 13px;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.longSubmit { background: var(--green); color: #fff; }
+.longSubmit:hover { opacity: 0.9; }
+.shortSubmit { background: var(--red); color: #fff; }
+.shortSubmit:hover { opacity: 0.9; }
+
+.feeRow { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); padding-top: 2px; }
+
+@media (max-width: 900px) {
+  .mainGrid { grid-template-columns: 1fr; }
+  .tradePanel { display: none; }
+}

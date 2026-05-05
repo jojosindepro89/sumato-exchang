@@ -1,0 +1,25 @@
+.history { display: flex; flex-direction: column; height: 100%; overflow: hidden; font-size: 12px; }
+.header { padding: 10px 12px 6px; border-bottom: 1px solid var(--border); }
+.title { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.colHeaders {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 6px 12px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.colHeaders span:not(:first-child) { text-align: right; }
+.list { flex: 1; overflow-y: auto; }
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 3px 12px;
+  transition: background 0.1s;
+  animation: fadeIn 0.3s ease;
+}
+.row:hover { background: var(--bg-hover); }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+.time { color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.buy { color: var(--green); text-align: right; font-variant-numeric: tabular-nums; }
+.sell { color: var(--red); text-align: right; font-variant-numeric: tabular-nums; }
+.amount { color: var(--text-secondary); text-align: right; font-variant-numeric: tabular-nums; }

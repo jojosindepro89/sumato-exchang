@@ -1,0 +1,61 @@
+.book {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  overflow: hidden;
+}
+.header {
+  padding: 10px 12px 6px;
+  border-bottom: 1px solid var(--border);
+}
+.title { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.colHeaders {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 6px 12px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.colHeaders span:not(:first-child) { text-align: right; }
+
+.asks, .bids { flex: 1; overflow: hidden; }
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 3px 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.row:hover { background: var(--bg-hover); }
+.depthBar {
+  position: absolute;
+  right: 0;
+  top: 0; bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.askPrice { color: var(--red); position: relative; z-index: 1; }
+.bidPrice { color: var(--green); position: relative; z-index: 1; }
+.amount, .total {
+  text-align: right;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 1;
+}
+
+.spreadRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+}
+.midPrice { font-size: 14px; font-weight: 700; }
+.priceUp { color: var(--green); }
+.priceDown { color: var(--red); }
+.spreadLabel { font-size: 11px; color: var(--text-muted); }

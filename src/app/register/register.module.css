@@ -1,0 +1,41 @@
+.strengthRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+.strengthBars {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+.strengthBar {
+  height: 3px;
+  flex: 1;
+  border-radius: 2px;
+  transition: background 0.3s;
+}
+.requirements {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.reqItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.agreeLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  line-height: 1.5;
+}
+.checkbox { accent-color: var(--accent); margin-top: 2px; }

@@ -1,0 +1,319 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+/* ===== TOAST ===== */
+.toast {
+  position: absolute;
+  top: -10px;
+  left: 0; right: 0;
+  transform: translateY(-100%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  animation: slideDown 0.3s ease, fadeOut 0.4s ease 4.6s forwards;
+  z-index: 200;
+}
+.toastBuy { background: rgba(14,203,129,0.12); border-color: rgba(14,203,129,0.4); color: var(--green); }
+.toastSell { background: rgba(246,70,93,0.12); border-color: rgba(246,70,93,0.4); color: var(--red); }
+.toastContent { flex: 1; }
+.toastTitle { font-size: 13px; font-weight: 700; }
+.toastDetail { font-size: 11px; opacity: 0.8; margin-top: 2px; }
+.toastClose { background: transparent; border: none; cursor: pointer; color: inherit; opacity: 0.7; display: flex; align-items: center; }
+.toastClose:hover { opacity: 1; }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-120%); }
+  to { opacity: 1; transform: translateY(-100%); }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* ===== AUTH BANNER ===== */
+.authBanner {
+  background: rgba(252,213,53,0.07);
+  border: 1px solid rgba(252,213,53,0.2);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 12px;
+}
+.authLink { color: var(--accent); font-weight: 700; }
+.authLink:hover { text-decoration: underline; }
+
+/* ===== SIDE TOGGLE ===== */
+.sideToggle {
+  display: flex;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.sideBtn {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  padding: 9px;
+  font-size: 13px; font-weight: 700;
+  background: transparent;
+  color: var(--text-muted);
+  border: none; cursor: pointer;
+  transition: all 0.2s;
+}
+.buyActive { background: rgba(14,203,129,0.15) !important; color: var(--green) !important; }
+.sellActive { background: rgba(246,70,93,0.15) !important; color: var(--red) !important; }
+
+/* ===== ORDER TYPE TABS ===== */
+.orderTypeTabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.typeBtn {
+  padding: 7px 12px;
+  font-size: 11px; font-weight: 500;
+  color: var(--text-muted);
+  background: transparent; border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer; transition: all 0.2s;
+  margin-bottom: -1px;
+}
+.typeBtn:hover { color: var(--text-primary); }
+.typeActive { color: var(--text-primary) !important; border-bottom-color: var(--text-primary) !important; }
+
+/* ===== FIELDS ===== */
+.fields { display: flex; flex-direction: column; gap: 8px; }
+
+.avail {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 11px; padding: 4px 0;
+}
+.availLabel { color: var(--text-muted); }
+.availValue { color: var(--text-secondary); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.fieldGroup { display: flex; flex-direction: column; gap: 4px; }
+.fieldLabel { font-size: 11px; color: var(--text-muted); }
+.inputWrap {
+  display: flex; align-items: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.inputWrap:focus-within { border-color: var(--border-light); }
+.fieldInput {
+  flex: 1;
+  padding: 8px 10px;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.fieldInput:disabled { opacity: 0.5; cursor: not-allowed; }
+.totalInput { color: var(--text-secondary); }
+.inputAdj {
+  width: 28px; height: 100%;
+  background: var(--bg-hover);
+  border: none; border-left: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 16px; cursor: pointer;
+  transition: background 0.15s;
+  display: flex; align-items: center; justify-content: center;
+}
+.inputAdj:hover { background: var(--border); color: var(--text-primary); }
+
+.marketPrice {
+  padding: 8px 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.marketPrice strong { color: var(--accent); }
+
+/* ===== PERCENTAGE BUTTONS ===== */
+.pctButtons { display: flex; gap: 4px; }
+.pctBtn {
+  flex: 1;
+  padding: 5px 0;
+  font-size: 11px; font-weight: 600;
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-muted);
+  cursor: pointer; transition: all 0.15s;
+}
+.pctBtn:hover { border-color: var(--text-secondary); color: var(--text-primary); }
+.pctBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+.pctActiveBuy { background: rgba(14,203,129,0.12) !important; border-color: var(--green) !important; color: var(--green) !important; }
+.pctActiveSell { background: rgba(246,70,93,0.12) !important; border-color: var(--red) !important; color: var(--red) !important; }
+
+/* ===== TP/SL ===== */
+.tpslToggle {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; color: var(--text-muted);
+  cursor: pointer; user-select: none;
+}
+.tpslToggle input { accent-color: var(--accent); }
+.tpslFields { display: flex; flex-direction: column; gap: 8px; }
+
+/* ===== SUBMIT BUTTONS ===== */
+.buySubmit {
+  padding: 13px;
+  background: var(--green); color: #fff;
+  border: none; border-radius: 4px;
+  font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: opacity 0.2s;
+  width: 100%;
+}
+.buySubmit:hover { opacity: 0.9; }
+.buySubmit:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.sellSubmit {
+  padding: 13px;
+  background: var(--red); color: #fff;
+  border: none; border-radius: 4px;
+  font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: opacity 0.2s;
+  width: 100%;
+}
+.sellSubmit:hover { opacity: 0.9; }
+.sellSubmit:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ===== FEE INFO ===== */
+.feeInfo {
+  display: flex; justify-content: space-between;
+  font-size: 10px; color: var(--text-muted);
+  padding: 4px 0;
+}
+
+/* ===== MODAL ===== */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 380px;
+  margin: 16px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+  animation: slideUp 0.25s ease;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modalHeader {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 20px 0;
+}
+.modalTitle {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 17px; font-weight: 800;
+}
+.modalBuy { color: var(--green); }
+.modalSell { color: var(--red); }
+.modalClose {
+  background: transparent; border: none;
+  color: var(--text-muted); cursor: pointer;
+  display: flex; align-items: center;
+  transition: color 0.2s;
+}
+.modalClose:hover { color: var(--text-primary); }
+
+.modalBody {
+  padding: 16px 20px;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.confirmRow {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.confirmRow:last-child { border-bottom: none; }
+.confirmRow span { color: var(--text-secondary); }
+.confirmRow strong { color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.confirmTotal { padding: 12px 0; }
+.confirmTotal span { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+.confirmTotal strong { font-size: 18px; font-weight: 800; }
+.totalBuy { color: var(--green) !important; }
+.totalSell { color: var(--red) !important; }
+
+.modalWarning {
+  display: flex; align-items: flex-start; gap: 7px;
+  margin: 0 20px;
+  padding: 10px 12px;
+  background: rgba(252,213,53,0.06);
+  border: 1px solid rgba(252,213,53,0.15);
+  border-radius: 6px;
+  font-size: 11px; color: var(--text-muted); line-height: 1.5;
+}
+.modalWarning svg { flex-shrink: 0; color: var(--accent); margin-top: 1px; }
+
+.modalActions {
+  display: flex; gap: 10px;
+  padding: 16px 20px 20px;
+}
+.modalCancel {
+  flex: 1;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s;
+}
+.modalCancel:hover { background: var(--bg-hover); }
+.modalCancel:disabled { opacity: 0.5; cursor: not-allowed; }
+.modalConfirmBuy {
+  flex: 2;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px;
+  background: var(--green); color: #fff;
+  border: none; border-radius: 8px;
+  font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: opacity 0.2s;
+}
+.modalConfirmBuy:hover { opacity: 0.9; }
+.modalConfirmBuy:disabled { opacity: 0.6; cursor: not-allowed; }
+.modalConfirmSell {
+  flex: 2;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px;
+  background: var(--red); color: #fff;
+  border: none; border-radius: 8px;
+  font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: opacity 0.2s;
+}
+.modalConfirmSell:hover { opacity: 0.9; }
+.modalConfirmSell:disabled { opacity: 0.6; cursor: not-allowed; }
+
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.spinner { animation: spin 0.8s linear infinite; }

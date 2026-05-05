@@ -1,0 +1,54 @@
+.main { min-height: 100vh; background: var(--bg-primary); padding-top: 80px; padding-bottom: 60px; }
+.container { max-width: 960px; margin: 0 auto; padding: 32px 24px; display: flex; flex-direction: column; gap: 28px; }
+.pageHeader { }
+.pageTitle { font-size: 28px; font-weight: 800; color: var(--text-primary); }
+.pageDesc { font-size: 14px; color: var(--text-secondary); margin-top: 6px; }
+.trustRow {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--green);
+  background: rgba(14,203,129,0.06); border: 1px solid rgba(14,203,129,0.15);
+  border-radius: 6px; padding: 10px 14px;
+}
+.servicesGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.serviceCard {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 24px;
+  display: flex; flex-direction: column; gap: 8px;
+  position: relative; overflow: hidden;
+  transition: all 0.25s;
+}
+.serviceCard:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+.serviceIcon {
+  width: 52px; height: 52px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 4px;
+}
+.serviceLabel { font-size: 16px; font-weight: 700; color: var(--text-primary); }
+.serviceDesc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+.serviceArrow { position: absolute; top: 20px; right: 20px; color: var(--text-muted); }
+.serviceCard:hover .serviceArrow { color: var(--accent); }
+
+.recentSection { }
+.recentTitle { font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px; }
+.recentList { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.recentRow {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 20px; border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.recentRow:last-child { border-bottom: none; }
+.recentRow:hover { background: var(--bg-hover); }
+.recentIcon {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center; color: var(--text-secondary); flex-shrink: 0;
+}
+.recentInfo { flex: 1; }
+.recentLabel { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.recentDate { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.recentRight { text-align: right; }
+.recentAmount { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+.recentAsset { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+.recentStatus { font-size: 11px; font-weight: 600; color: var(--green); min-width: 60px; text-align: right; }
+
+@media (max-width: 700px) { .servicesGrid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .servicesGrid { grid-template-columns: 1fr; } }

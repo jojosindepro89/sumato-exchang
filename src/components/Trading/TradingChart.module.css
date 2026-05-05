@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-card);
+}
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.timeframes { display: flex; gap: 2px; }
+.tfBtn {
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.tfBtn:hover { color: var(--text-primary); background: var(--bg-hover); }
+.tfActive { color: var(--accent) !important; background: rgba(252,213,53,0.1) !important; }
+.indicators { display: flex; gap: 2px; }
+.indBtn {
+  padding: 5px 10px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.indBtn:hover { color: var(--text-primary); background: var(--bg-hover); }
+.chart {
+  flex: 1;
+  min-height: 0;
+  height: 400px;
+}
